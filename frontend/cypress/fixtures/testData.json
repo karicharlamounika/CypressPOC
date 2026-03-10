@@ -1,0 +1,10 @@
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe94@gmail.com",
+    "password": "Test345",
+    "NametoBeAdded" : "Samsung s250",
+    "QuantitytoBeAdded" : "10",
+    "NameToBeUpdated" : "Iphone 16",
+     "QuantityToBeUpdated" : "16"
+}
