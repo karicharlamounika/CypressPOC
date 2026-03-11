@@ -77,7 +77,7 @@ Cypress.Commands.add('clickOnAddNewItem', () => {
 
 Cypress.Commands.add('enterNameAndQuantity', () => {
   cy.get("[test-id='Name']").clear().type(testData.NametoBeAdded);
-  cy.get("[test-id='quantity']").clear().type(testData.QuantitytoBeAdded);
+  cy.get("[test-id='quantity']").type(testData.QuantitytoBeAdded);
 });
 
 Cypress.Commands.add('clickOnAdd', () => {
@@ -114,7 +114,7 @@ Cypress.Commands.add('clickOnEditItem', () => {
 
 Cypress.Commands.add('enterNewNameAndQuantity', () => {
   cy.get("[test-id='editName']").clear().type(testData.NameToBeUpdated);
-  cy.get("[test-id='editQuantity']").clear().type(testData.QuantityToBeUpdated);
+  cy.get("[test-id='editQuantity']").should('be.visible').focus().type('{selectall}').type(testData.QuantityToBeUpdated);
 });
 
 Cypress.Commands.add('clickOnSaveEdit', () => {
@@ -146,10 +146,13 @@ Cypress.Commands.add('validateItemUpdated', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 Cypress.Commands.add('deleteItem', () => {
+  cy.intercept('DELETE', '/items/*').as('deleteItemRequest');
   cy.get('tbody tr').last()
     .find("[test-id='editActions']")
     .find("[test-id='deleteItem']")
     .click();
+  cy.wait('@deleteItemRequest').its('response.statusCode').should('eq', 204);  
+  
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -157,7 +160,13 @@ Cypress.Commands.add('deleteItem', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 Cypress.Commands.add('getItemNameList', () => {
-  return cy.get("[test-id='itemName']").then(($els) => {
-    return [...$els].map((el) => el.innerText.trim());
+  return cy.get('body').then(($body) => {
+    if ($body.find("[test-id='itemName']").length > 0) {
+      return cy.get("[test-id='itemName']").then(($els) => {
+        return [...$els].map((el) => el.innerText.trim());
+      });
+    } else {
+      return [];  
+    }
   });
 });

@@ -1,7 +1,7 @@
 {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "johndoe94@gmail.com",
+    "firstName": "test",
+    "lastName": "user",
+    "email": "testuser@gmail.com",
     "password": "Test345",
     "NametoBeAdded" : "Samsung s250",
     "QuantitytoBeAdded" : "10",

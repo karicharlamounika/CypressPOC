@@ -1,0 +1,68 @@
+name: API and E2E Test execution of app catalog manager using github actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-test-backend:
+    name: Build Backend and test API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies start and verify backend
+        run: bash ./setup_backend.sh
+
+      - name: Run API tests
+        run: |
+          echo "Running API tests"
+          cd backend || exit 1
+          npm run test:api
+
+      - name: Upload API test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-results-${{ github.run_number }}
+          path: |
+            ./backend/api_test_results/
+
+  e2e-tests:
+    name: E2E test execution
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies, start and verify backend
+        run: bash ./setup_backend.sh
+
+      - name: Install dependencies, start and verify frontend
+        run: bash ./setup_frontend.sh
+
+      - name: Install Cypress and run E2E tests
+        run: |
+          echo "Installing Cypress and running E2E tests"
+          cd frontend || exit 1
+          npm run test:ci
+
+      - name: Upload Cypress test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report-e2etests-${{ github.run_number }}
+          path: |
+            ./frontend/cypress/reports/
+            ./frontend/cypress/screenshots/
+            ./frontend/cypress/videos/

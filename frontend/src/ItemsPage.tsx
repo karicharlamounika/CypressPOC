@@ -18,12 +18,12 @@ const ItemsPage: React.FC = () => {
 
   // Add item inputs
   const [newName, setNewName] = useState("");
-  const [newQuantity, setNewQuantity] = useState<number>(1);
+  const [newQuantity, setNewQuantity] = useState<number>(0);
 
   // Editing
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editName, setEditName] = useState("");
-  const [editQuantity, setEditQuantity] = useState<number>(1);
+  const [editQuantity, setEditQuantity] = useState<number>(0);
 
   const token = localStorage.getItem("token");
 
@@ -170,6 +170,7 @@ const ItemsPage: React.FC = () => {
             min={1}
             value={newQuantity}
             onChange={(e) => setNewQuantity(Number(e.target.value))}
+            onFocus={(e) => e.target.select()}
             style={{ padding: "0.5rem", width: "25%", marginRight: "0.5rem" }}
           />
           <button
@@ -237,9 +238,10 @@ const ItemsPage: React.FC = () => {
                     <input
                       type="number"
                       test-id="editQuantity"
-                      min={1}
+                      min={0}
                       value={editQuantity}
                       onChange={(e) => setEditQuantity(Number(e.target.value))}
+                      onFocus={(e) => e.target.select()}  
                       style={{ padding: "0.3rem", width: "50px" }}
                     />
                   ) : (

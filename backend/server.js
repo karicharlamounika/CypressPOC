@@ -123,15 +123,15 @@ app.put("/items/:id", authenticateToken, (req, res) => {
 });
 
 // Delete item (protected)
-// app.delete("/items/:id", authenticateToken, (req, res) => {
-//   const { id } = req.params;
-//   db.run("DELETE FROM items WHERE id = ?", [id], function (err) {
-//     if (err) return res.status(500).json({ error: err.message });
-//     if (this.changes === 0)
-//       return res.status(404).json({ message: "Item not found" });
-//     res.status(204).end();
-//   });
-// });
+app.delete("/items/:id", authenticateToken, (req, res) => {
+  const { id } = req.params;
+  db.run("DELETE FROM items WHERE id = ?", [id], function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0)
+      return res.status(404).json({ message: "Item not found" });
+    res.status(204).end();
+  });
+});
 
 // Start server
 const PORT = 5000;

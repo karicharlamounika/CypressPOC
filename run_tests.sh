@@ -6,8 +6,10 @@ rm -rf frontend/playwright-report
 echo "Running API tests..."
 echo "Switching to backend directory..."
 cd backend
+echo "Installing Cypress ..."
+npx cypress install
 echo "Triggering API tests..."
-npm run test:api
+npx cypress run
 
 echo "API tests completed."
 echo "Switching back to root directory..."
@@ -16,10 +18,10 @@ cd ..
 echo "Running E2E tests..."
 echo "Switching to frontend directory..."
 cd frontend
-echo "Installing Playwright..."
-npx playwright install
+echo "Installing Cypress..."
+npx cypress install
 echo "Triggering E2E tests..."
-npm run test
+npx cypress run
 
 echo "E2E tests completed."
 echo "Switching back to root directory..."

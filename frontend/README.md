@@ -1,5 +1,5 @@
 # React + TypeScript + Vite
-
+This is a Cypress POC (Proof of Concept) frontend application built with React, TypeScript, and Vite. It provides a minimal setup with HMR (Hot Module Replacement) and ESLint configuration for development and testing purposes.
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

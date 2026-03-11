@@ -4,7 +4,7 @@
   "version": "0.0.0",
  "scripts": {
     "start-backend": "node ./server.js",
-    "test:api": "newman run ./tests/catalogmanger.postman_collection.json --reporters cli,json --reporter-json-export ./api_test_results/api_test_results.json"
+    "test:api": "npx cypress install && npx cypress run"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -16,6 +16,9 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "newman": "^6.2.1"
+    "cypress": "^13.10.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }
