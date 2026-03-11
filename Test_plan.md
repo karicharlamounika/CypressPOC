@@ -42,12 +42,12 @@ This document outlines the testing strategy for the Inventory Catalog Manager ap
 
 ## 4. Tools Used
 
-- **Playwright:** For E2E/UI automation due to its reliability, speed, and cross-browser support.
-- **Postman + Newman:** For API testing and automated execution via CI and locally, enabling easy validation of REST endpoints and error codes.
+- **Cypress:** For E2E/UI automation due to its reliability, speed, and cross-browser support.
+- **Cypress:** For API testing and automated execution via CI and locally, enabling easy validation of REST endpoints and error codes.
 
 ## 5. Assumptions / Limitations
 
-- Test data is hard coded for api and UI both. While rer-unning tests locally update email in testData.json for e2e and       catalogmanger.postman_collection.json for api
+- Test data is hard coded for api and UI both. While rer-unning tests locally update email in testData.json for e2e and apitests.cy.js   for api
 - Only functional aspects are covered; non-functional requirements are excluded.
 - ELement state validations are not covered as they are component testing scenarios
 - Scennarios related to invalid login credentials is limited to API tests to avoid retundancy of tests
