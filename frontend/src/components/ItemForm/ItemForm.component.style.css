@@ -1,0 +1,8 @@
+.itemform {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.itemform__name { width: 60%; min-width: 160px; }
+.itemform__qty { width: 90px; }

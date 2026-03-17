@@ -1,9 +1,20 @@
 {
+  "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "module": "nodenext",
+    "types": ["cypress", "node"],
     "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
     "noEmit": true
-  }
+  },
+  "include": [
+    "src",
+    "src/**/*.cy.ts",
+    "src/**/*.cy.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.spec.cy.ts",
+    "src/**/*.spec.cy.tsx",
+    "cypress"
+  ]
 }

@@ -1,10 +1,9 @@
 import React, { type JSX } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
-import ItemsPage from "./ItemsPage";
+import LoginPage from "./pages/LoginPage/LoginPage.page";
+import RegisterPage from "./pages/RegisterPage/RegisterPage.page";
+import ItemsPage from "./pages/ItemsPage/ItemsPage.page";
 
-// PrivateRoute checks if token exists, else redirects to login
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const token = localStorage.getItem("token");
   return token ? children : <Navigate to="/login" />;

@@ -1,0 +1,67 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fdf6f0;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  min-width: 320px;
+  padding: 36px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(224, 224, 224, 1);
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 1rem;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.input {
+  width: 95%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.primaryButton {
+  width: 95%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  background-color: #a29bfe;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.mutedButton {
+  width: 95%;
+  margin-top: 8px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: pointer;
+}
+
+.promo {
+  margin-bottom: 12px;
+  color: #6c5ce7;
+  font-size: 0.95rem;
+  text-align: center;
+}

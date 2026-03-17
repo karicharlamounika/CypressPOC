@@ -1,0 +1,22 @@
+.items-table {
+  width: 100%;
+  max-width: 880px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.items-table th, .items-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.items-table__actions { text-align: center; }
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 6px;
+  font-size: 1rem;
+}

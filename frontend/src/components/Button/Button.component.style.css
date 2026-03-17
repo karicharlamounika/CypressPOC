@@ -1,0 +1,19 @@
+.btn {
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn--primary {
+  background: #a29bfe;
+  color: #fff;
+}
+.btn--muted {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #dcdcdc;
+}
