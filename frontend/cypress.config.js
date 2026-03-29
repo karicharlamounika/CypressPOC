@@ -23,4 +23,13 @@ export default defineConfig({
       return config;
     },
   },
+  component: {
+    devServer: {
+      framework: 'vue',
+      bundler: 'vite',
+    },
+    specPattern: 'src/components/**/*.spec.cy.ts',
+    supportFile: 'src/cypress/support/component.ts',
+    indexHtmlFile: 'src/cypress/support/component-index.html',
+  },
 });

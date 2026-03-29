@@ -52,11 +52,15 @@ const RegisterForm: React.FC<Props> = ({ onSuccess, onError }) => {
       <TextInput data-testid="email" name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required />
       <TextInput data-testid="password" name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required />
 
-      {error && <div className="rf__error" role="alert">{error}</div>}
+      {error && (
+        <div role="alert" style={{ color: "red" }}>
+          {error}
+        </div>
+      )}
 
-      <div className="rf__actions">
-        <Button data-testid="register" type="submit" disabled={loading}>{loading ? "Registering…" : "Register"}</Button>
-      </div>
+      <Button data-testid="register" type="submit" disabled={loading}>
+        {loading ? "Registering" : "Register"}
+      </Button>
     </form>
   );
 };

@@ -6,7 +6,6 @@ type Props = React.InputHTMLAttributes<HTMLInputElement>;
 const TextInput: React.FC<Props> = ({
   className = "",
   value,
-  defaultValue,
   onChange,
   placeholder,
   type = "text",
@@ -18,7 +17,6 @@ const TextInput: React.FC<Props> = ({
     <input
       className={`text-input ${className}`.trim()}
       value={value}
-      defaultValue={defaultValue}
       onChange={onChange}
       placeholder={placeholder}
       type={type}
